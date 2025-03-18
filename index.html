@@ -15,7 +15,7 @@
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
-        canvas {
+        #gameCanvas {
             border: 2px solid #333;
             background-color: #fff;
         }
@@ -23,20 +23,41 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        #game-over {
+        #gameOver {
             display: none;
-            position: absolute;
-            font-size: 48px;
-            color: red;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div id="score">Score: 0</div>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="game-over">Game Over!</div>
-    <script src="Snake.js"></script>
-    <script src="Food.js"></script>
-    <script src="Game.js"></script>
+    <div id="gameOver">
+        <h2>Game Over!</h2>
+        <p>Your score: <span id="finalScore">0</span></p>
+        <button onclick="restartGame()">Play Again</button>
+    </div>
+    <script src="game.js"></script>
 </body>
 </html>
